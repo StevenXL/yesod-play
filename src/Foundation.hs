@@ -19,6 +19,7 @@ import Yesod.Auth.Dummy
 
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Types.Natural
 import Yesod.Auth.OpenId (IdentifierType(Claimed), authOpenId)
 import Yesod.Core.Types (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
@@ -150,7 +151,7 @@ instance Yesod App
     isAuthorized (AuthR _) _ = return Authorized
     isAuthorized CommentR _ = return Authorized
     isAuthorized HomeR _ = return Authorized
-    isAuthorized TestR _ = return Authorized
+    isAuthorized (TestR _) _ = return Authorized
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized

@@ -8,9 +8,9 @@
 module Handler.Test where
 
 import Import
+import Types.Natural (Natural, natToInt)
 
-getTestR :: Handler ()
-getTestR = do
-    setMessage $
-        toHtml ("Hello. I am testing setting / getting messages" :: String)
+getTestR :: Natural -> Handler ()
+getTestR natural = do
+    setMessage $ toHtml ("You showed me: " ++ show (natToInt natural))
     redirect HomeR
