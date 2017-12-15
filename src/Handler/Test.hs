@@ -12,6 +12,9 @@ import Types.Natural (Natural, natToInt)
 
 getTestR :: Handler ()
 getTestR = do
-    master <- getYesod
-    setMessage $ toHtml ("You showed me: " ++ show master)
+    renderFunction <- getUrlRender
+    setMessage $
+        toHtml
+            ("TestR is a data constant which can be turned into the following url: " ++
+             renderFunction TestR)
     redirect HomeR
