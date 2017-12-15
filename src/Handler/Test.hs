@@ -10,7 +10,8 @@ module Handler.Test where
 import Import
 import Types.Natural (Natural, natToInt)
 
-getTestR :: Natural -> Handler ()
-getTestR natural = do
-    setMessage $ toHtml ("You showed me: " ++ show (natToInt natural))
+getTestR :: Handler ()
+getTestR = do
+    master <- getYesod
+    setMessage $ toHtml ("You showed me: " ++ show master)
     redirect HomeR

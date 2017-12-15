@@ -9,7 +9,7 @@
 
 / HomeR GET POST
 
-/test/#Natural TestR GET
+/test TestR GET
 
 /comments CommentR POST
 

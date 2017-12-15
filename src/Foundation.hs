@@ -37,6 +37,10 @@ data App = App
     , appLogger :: Logger
     }
 
+instance Show App where
+    show _ =
+        "We can't really test getYesod because we can't print a value of type App"
+
 data MenuItem = MenuItem
     { menuItemLabel :: Text
     , menuItemRoute :: Route App
@@ -151,7 +155,7 @@ instance Yesod App
     isAuthorized (AuthR _) _ = return Authorized
     isAuthorized CommentR _ = return Authorized
     isAuthorized HomeR _ = return Authorized
-    isAuthorized (TestR _) _ = return Authorized
+    isAuthorized TestR _ = return Authorized
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
