@@ -12,9 +12,9 @@ import Types.Natural (Natural, natToInt)
 
 getTestR :: Handler ()
 getTestR = do
-    renderFunction <- getUrlRender
+    renderWithParams <- getUrlRenderParams
     setMessage $
         toHtml
-            ("TestR is a data constant which can be turned into the following url: " ++
-             renderFunction TestR)
+            ("We can also use a different function to render a route with params" ++
+             renderWithParams TestR [("foo", "bar")])
     redirect HomeR
