@@ -12,7 +12,7 @@ import Import
 
 getTestR :: Handler Html
 getTestR = do
-    (widget, enctype) <- generateFormPost $ renderDivs personForm
+    (widget, enctype) <- generateFormPost $ renderBootstrap2 personForm
     defaultLayout
         [whamlet|
           <form method=post action=@{TestR} enctype={enctype}>
