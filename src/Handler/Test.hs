@@ -8,7 +8,6 @@
 module Handler.Test where
 
 import Import
-import Types.Natural (Natural, natToInt)
 
 getTestR :: Handler ()
 getTestR = do
