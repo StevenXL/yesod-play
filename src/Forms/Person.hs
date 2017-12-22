@@ -13,7 +13,13 @@ import Types.Person (Person(..))
 -- some fields
 nameField = textField
 
-ageField = intField
+ageField = check validateYear intField
+
+-- some validations
+validateYear :: (Ord a, Num a) => a -> Either Text a
+validateYear year
+    | year < 1990 = Left "You are too old!"
+    | otherwise = Right year
 
 -- some forms
 nameForm = areq nameField "Name" Nothing
