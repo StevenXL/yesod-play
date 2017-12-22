@@ -22,7 +22,14 @@ getTestR = do
 
 postTestR :: Handler Html
 postTestR = do
-    ((result, _), _) <- runFormPost $ renderDivs personForm
+    ((result, widget), _) <- runFormPost $ renderDivs personForm
     case result of
         FormSuccess person -> defaultLayout [whamlet|<p>#{show person}|]
-        _ -> defaultLayout [whamlet|<p>Couldn't parse person|] -- could have used widget with errors
+        _ ->
+            defaultLayout
+                [whamlet|
+                           <p>something went wrong
+                           <form method=post action=@{TestR} enctype={enctype}>
+                             ^{widget}
+                             <button>Submit
+                           |]
