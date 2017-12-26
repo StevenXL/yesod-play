@@ -9,6 +9,10 @@
 
 / HomeR GET POST
 
+/test TestR GET POST
+
+/hello HelloR GET
+
 /comments CommentR POST
 
 /profile ProfileR GET
